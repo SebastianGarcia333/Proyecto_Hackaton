@@ -1,0 +1,90 @@
+
+
+:root {
+  --color-dorado: #d4a017;
+  --color-dorado-claro: #e6bb4a;
+  --color-negro: #000000;
+  --color-blanco: #ffffff;
+  --color-superficie: #0c0c0c;
+  --color-linea: rgba(255, 255, 255, 0.14);
+  --color-texto-suave: rgba(255, 255, 255, 0.66);
+  --radio: 4px;
+  --fuente-titulo: "Cormorant Garamond", Georgia, serif;
+  --fuente-texto: "Manrope", system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  color: var(--color-blanco);
+  background: var(--color-negro);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3, .logotipo { font-family: var(--fuente-titulo); font-weight: 600; line-height: 1.05; }
+
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--color-dorado); outline-offset: 3px; }
+
+.barra-superior {
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-linea);
+  position: sticky; top: 0; z-index: 1030;
+}
+.logotipo { font-size: 2.1rem; text-decoration: none; letter-spacing: 1px; }
+.logotipo span { color: var(--color-dorado); }
+.enlace-barra {
+  text-decoration: none; margin-inline: 1.1rem; font-size: .95rem;
+  color: var(--color-texto-suave); transition: color .2s;
+}
+.enlace-barra:hover, .enlace-barra.activo { color: var(--color-dorado); }
+
+.boton-ticket {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: transparent; color: var(--color-blanco);
+  border: 1px solid var(--color-linea); border-radius: var(--radio);
+  padding: .4rem .9rem; font-size: .95rem; text-decoration: none; transition: border-color .2s, color .2s;
+}
+.boton-ticket:hover { border-color: var(--color-dorado); color: var(--color-dorado); }
+.burbuja-ticket {
+  background: var(--color-dorado); color: var(--color-negro); font-weight: 700;
+  min-width: 1.5rem; height: 1.5rem; border-radius: 50%;
+  display: inline-grid; place-items: center; font-size: .8rem;
+}
+.burbuja-ticket.rebote { animation: rebote .35s ease; }
+@keyframes rebote { 40% { transform: scale(1.4); } }
+
+.boton-kase {
+  display: inline-block; background: var(--color-dorado); color: var(--color-negro);
+  border: 1px solid var(--color-dorado); border-radius: var(--radio);
+  padding: .75rem 1.8rem; font-weight: 600; text-decoration: none; transition: background .2s, color .2s;
+}
+.boton-kase:hover { background: transparent; color: var(--color-dorado); }
+.boton-kase:disabled { background: transparent; border-color: var(--color-linea); color: var(--color-texto-suave); cursor: not-allowed; }
+.boton-kase--pequeno { padding: .35rem 1.1rem; font-size: .9rem; }
+.boton-kase--claro { background: transparent; color: var(--color-blanco); border-color: var(--color-linea); }
+.boton-kase--claro:hover { border-color: var(--color-dorado); color: var(--color-dorado); }
+
+.linea-ticket {
+  display: flex; justify-content: space-between; align-items: center; gap: .75rem;
+  padding: 1rem 0; border-bottom: 1px solid var(--color-linea);
+}
+.linea-ticket small { display: block; color: var(--color-texto-suave); }
+.linea-ticket__nombre { font-weight: 600; }
+.linea-ticket__acciones { display: flex; align-items: center; gap: .5rem; }
+.boton-cantidad {
+  width: 1.9rem; height: 1.9rem; border: 1px solid var(--color-linea); background: transparent;
+  color: var(--color-blanco); border-radius: 50%; line-height: 1; transition: border-color .2s, color .2s;
+}
+.boton-cantidad:hover { border-color: var(--color-dorado); color: var(--color-dorado); }
+.boton-cantidad--borrar { margin-left: .4rem; }
+.ticket-vacio { text-align: center; padding: 2rem 0; color: var(--color-texto-suave); }
+
+.pie-pagina { border-top: 1px solid var(--color-linea); padding: 2.5rem 0; }
+.pie-pagina a { color: var(--color-dorado); text-decoration: none; }
+.pie-pagina small { color: var(--color-texto-suave); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
